@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:35:00 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/01 01:12:58 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:33:25 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ bool av_check(char *str)
 	int	i;
 
 	i = 0;
+	if (str == NULL)
+		return (false);
 	while (str[i])
 	{
 		if (i == 0 && !(str[i] == '-' || str[i] == '+' || ft_isdigit(str[i])))

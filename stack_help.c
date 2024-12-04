@@ -6,26 +6,26 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 21:30:14 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/03 03:23:14 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/04 17:21:01 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_stack *stack)
+void	the_sort(t_stack *stack)
 {
-	t_list	*biggest;
+	t_list	*big;
 
-	biggest = find_max(stack);
-	if (biggest == stack->top)
+	big = find_max(stack);
+	if (big == stack->top)
 		ra(stack);
-	else if (biggest == stack->top->next)
+	else if (big == stack->top->next)
 		rra(stack);
-	if (!ft_lstissorted(stack->top, swp_cmp))
+	if (!ft_lstsort(stack->top, swp_cmp))
 		sa(stack);
 }
 
-void	prepare_is_above(t_stack *stack)
+void	prepare_or(t_stack *stack)
 {
 	t_list	*temp;
 	t_swap	*swap;
@@ -47,48 +47,48 @@ void	prepare_is_above(t_stack *stack)
 }
 
 void	load_stack(t_stack *find, t_stack *target,
-				void (*find_target)(t_swap *val, t_stack *target))
-{
+				void (*prcs)(t_swap *value, t_stack *target))
+{	
 	t_list	*tmp;
 	t_swap	*swp;
 
 	tmp = find->top;
-	prepare_is_above(find);
-	prepare_is_above(target);
+	prepare_or(find);
+	prepare_or(target);
 	while (tmp != NULL)
 	{
 		swp = (t_swap *)tmp->content;
-		find_target(swp, target);
+		prcs(swp, target);
 		tmp = tmp->next;
 	}
 }
 
-void	find_cheapest(t_stack *from, t_stack *to)
+void	cheapest(t_stack *find, t_stack *target)
 {
-	t_swap	*swap;
-	t_swap	*target;
-	t_list	*temp;
+	t_swap	*swp;
+	t_swap	*tget;
+	t_list	*tmp;
 	t_swap	*min;
 
-	temp = from->top;
-	min = (t_swap *)temp->content;
+	tmp = find->top;
+	min = (t_swap *)tmp->content;
 	min->is_cheapest = true;
-	while (temp != NULL)
+	while (tmp != NULL)
 	{
-		swap = (t_swap *)temp->content;
-		target = (t_swap *)swap->target->content;
-		if (swap->is_above_median)
-			swap->cost = swap->index;
+		swp = (t_swap *)tmp->content;
+		tget = (t_swap *)swp->target->content;
+		if (swp->is_above_median)
+			swp->cost = swp->index;
 		else
-			swap->cost = from->count - swap->index;
-		if (target->is_above_median)
-			swap->cost += target->index;
+			swp->cost = find->count - swp->index;
+		if (tget->is_above_median)
+			swp->cost += tget->index;
 		else
-			swap->cost += to->count - target->index;
-		swap->cost++;
-		if (swap->cost < min->cost)
-			swap_cheapest(swap, &min);
-		temp = temp->next;
+			swp->cost += target->count - tget->index;
+		swp->cost++;
+		if (swp->cost < min->cost)
+			chpst_swap(swp, &min);
+		tmp = tmp->next;
 	}
 }
 
@@ -99,17 +99,17 @@ void	sorting(t_stack *a, t_stack *b)
 	while (a->count > 3)
 	{
 		load_stack(a, b, transaction_a);
-		find_cheapest(a, b);
-		do_operations_a(a, b);
+		cheapest(a, b);
+		op_a(a, b);
 	}
-	if (!ft_lstissorted(a->top, swp_cmp))
-		sort_three(a);
+	if (!ft_lstsort(a->top, swp_cmp))
+		the_sort(a);
 	while (b->count > 0)
 	{
 		load_stack(b, a, transaction_b);
-		do_operations_b(a, b);
+		op_b(a, b);
 	}
-	prepare_is_above(a);
+	prepare_or(a);
 	min = find_min(a);
 	while (a->top != min)
 	{

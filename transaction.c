@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 21:37:28 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/02 21:39:31 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/04 17:11:01 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 t_list	*transaction_max(t_stack *stack)
 {
 	t_list	*max;
-	t_list	*temp;
+	t_list	*tmp;
 
 	max = stack->top;
-	temp = stack->top;
-	while (temp != NULL)
+	tmp = stack->top;
+	while (tmp != NULL)
 	{
-		if (swp_cmp(temp->content, max->content))
-			max = temp;
-		temp = temp->next;
+		if (swp_cmp(tmp->content, max->content))
+			max = tmp;
+		tmp = tmp->next;
 	}
 	return (max);
 }
@@ -31,61 +31,61 @@ t_list	*transaction_max(t_stack *stack)
 t_list	*transaction_min(t_stack *stack)
 {
 	t_list	*min;
-	t_list	*temp;
+	t_list	*tmp;
 
 	min = stack->top;
-	temp = stack->top;
-	while (temp != NULL)
+	tmp = stack->top;
+	while (tmp != NULL)
 	{
-		if (!swp_cmp(temp->content, min->content))
-			min = temp;
-		temp = temp->next;
+		if (!swp_cmp(tmp->content, min->content))
+			min = tmp;
+		tmp = tmp->next;
 	}
 	return (min);
 }
 
 void	transaction_b(t_swap *val, t_stack *a)
 {
-	t_list	*temp;
-	t_swap	*swap;
-	t_swap	*target;
+	t_list	*tmp;
+	t_swap	*swp;
+	t_swap	*transaction;
 
-	temp = a->top;
+	tmp = a->top;
 	val->target = find_max(a);
 	if (val->nbr > ((t_swap *)val->target->content)->nbr)
 	{
 		val->target = find_min(a);
 		return ;
 	}
-	while (temp != NULL)
+	while (tmp != NULL)
 	{
-		swap = (t_swap *)temp->content;
-		target = (t_swap *)val->target->content;
-		if (val->nbr < swap->nbr && swap->nbr < target->nbr)
-			val->target = temp;
-		temp = temp->next;
+		swp = (t_swap *)tmp->content;
+		transaction = (t_swap *)val->target->content;
+		if (val->nbr < swp->nbr && swp->nbr < transaction->nbr)
+			val->target = tmp;
+		tmp = tmp->next;
 	}
 }
 
 void	transaction_a(t_swap *val, t_stack *b)
 {
-	t_list	*temp;
-	t_swap	*swap;
-	t_swap	*target;
+	t_list	*tmp;
+	t_swap	*swp;
+	t_swap	*transaction;
 
-	temp = b->top;
+	tmp = b->top;
 	val->target = find_min(b);
 	if (val->nbr <= ((t_swap *)val->target->content)->nbr)
 	{
 		val->target = find_max(b);
 		return ;
 	}
-	while (temp != NULL)
+	while (tmp != NULL)
 	{
-		swap = (t_swap *)temp->content;
-		target = (t_swap *)val->target->content;
-		if (val->nbr > swap->nbr && swap->nbr > target->nbr)
-			val->target = temp;
-		temp = temp->next;
+		swp = (t_swap *)tmp->content;
+		transaction = (t_swap *)val->target->content;
+		if (val->nbr > swp->nbr && swp->nbr > transaction->nbr)
+			val->target = tmp;
+		tmp = tmp->next;
 	}
 }

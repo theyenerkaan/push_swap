@@ -1,28 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stackpop.c                                      :+:      :+:    :+:   */
+/*   target.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/01 00:12:55 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/04 17:19:02 by yenyilma         ###   ########.fr       */
+/*   Created: 2024/12/04 16:05:51 by yenyilma          #+#    #+#             */
+/*   Updated: 2024/12/04 16:06:59 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	*ft_stackpop(t_stack *stack)
+t_list	*find_max(t_stack *stack)
 {
-	void	*content;
+	t_list	*max;
 	t_list	*tmp;
 
-	if (stack->count == 0)
-		return (ft_printf("You can't pop when stack is empty!!!"), NULL);
-	content = stack->top->content;
+	max = stack->top;
 	tmp = stack->top;
-	stack->top = stack->top->next;
-	ft_lstdelone(tmp, NULL);
-	stack->count--;
-	return (content);
+	while (tmp != NULL)
+	{
+		if (swp_cmp(tmp->content, max->content))
+			max = tmp;
+		tmp = tmp->next;
+	}
+	return (max);
+}
+t_list	*find_min(t_stack *stack)
+{
+	t_list	*min;
+	t_list	*tmp;
+
+	min = stack->top;
+	tmp = stack->top;
+	while (tmp != NULL)
+	{
+		if (!swp_cmp(tmp->content, min->content))
+			min = tmp;
+		tmp = tmp->next;
+	}
+	return (min);
 }

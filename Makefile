@@ -6,7 +6,7 @@
 #    By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/30 19:17:54 by yenyilma          #+#    #+#              #
-#    Updated: 2024/11/30 20:13:16 by yenyilma         ###   ########.fr        #
+#    Updated: 2024/12/04 18:30:27 by yenyilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,15 @@ LIBFT = libft/libft.a
 LIBFTDIR = libft
 PRINTF = printf/libftprintf.a
 PRINTFDIR = printf
-SRC = push_swap.c
+SRC = push_swap.c data_parser.c ft_lstsort.c ft_stackclear.c ft_stacknew.c ft_stackpop.c \
+	ft_stackpush.c help.c operation.c push_operations.c r_rotate_operations.c rotate_operations.c \
+	stack_help.c swap_operations.c target.c transaction.c 
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(LIBFT) $(PRINTF) $(OBJ) $(HEADER) 
-	@$(NAME) $(OBJ)
+	@$(CC) $(OBJ) $(LIBFT) $(PRINTF) -o $(NAME)
 	@echo "compiling..."
 
 %.o : %.c $(HEADER)
