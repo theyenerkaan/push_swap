@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:44:32 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/01 02:23:45 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/06 22:17:08 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void ft_arrfree(char **arr)
 	}
 	free(arr);
 }
-bool swp_cmp(void *prev, void *next)
+bool	swp_cmp(void *curr, void *next)
 {
-	return (*(int *)prev < *(int *)next);
+	return (((t_swap *)curr)->nbr > ((t_swap *)next)->nbr);
 }
 void swp_print(void *swap)
 {
