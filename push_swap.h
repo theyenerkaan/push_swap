@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 02:26:59 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/06 22:22:16 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/07 18:56:27 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_swap
 void		first(int ac, char **av, t_stack **a, t_stack **b);
 t_stack		*ft_stacknew(void);
 bool 		parse(t_stack *stack, int ac, char **av);
-void		ft_stackclear(t_stack *stack);
+void		ft_stackclear(t_stack *stack, void (*del)(void *));
 void		av_f_check(t_stack *a, t_stack *b);
 bool		ft_lstsort(t_list *lst, bool (*cmp)(void *elmnt, void *elmnt1));
 bool 		swp_cmp(void *prev, void *next);

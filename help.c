@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:44:32 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/06 22:17:08 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/07 19:00:59 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ bool	swp_cmp(void *curr, void *next)
 {
 	return (((t_swap *)curr)->nbr > ((t_swap *)next)->nbr);
 }
+
 void swp_print(void *swap)
 {
 	ft_printf("%d\n", ((t_swap *)swap)->nbr);
