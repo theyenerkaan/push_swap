@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 02:26:59 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/07 19:03:22 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/07 19:20:40 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	first(int ac, char **av, t_stack **a, t_stack **b)
 {
 	if (ac == 1)
-		return ;
+		exit ;
 	*a = ft_stacknew();
 	if (parse(*a, ac, av))
 	{
 		ft_printf("Error\n");
 		ft_stackclear(*a, free);
-		return ;
+		exit ;
 	}
 	*b = ft_stacknew();
 }
