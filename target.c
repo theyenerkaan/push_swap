@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:05:51 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/04 16:06:59 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/10 20:11:02 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_list	*find_max(t_stack *stack)
 	}
 	return (max);
 }
+
 t_list	*find_min(t_stack *stack)
 {
 	t_list	*min;

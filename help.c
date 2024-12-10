@@ -6,15 +6,15 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:44:32 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/07 19:00:59 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/10 20:12:46 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t ft_arrlen(char **arr)
+size_t	ft_arrlen(char **arr)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (!arr)
@@ -24,9 +24,9 @@ size_t ft_arrlen(char **arr)
 	return (i);
 }
 
-void ft_arrfree(char **arr)
+void	ft_arrfree(char **arr)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (arr[i])
@@ -36,12 +36,13 @@ void ft_arrfree(char **arr)
 	}
 	free(arr);
 }
+
 bool	swp_cmp(void *curr, void *next)
 {
 	return (((t_swap *)curr)->nbr > ((t_swap *)next)->nbr);
 }
 
-void swp_print(void *swap)
+void	swp_print(void *swap)
 {
 	ft_printf("%d\n", ((t_swap *)swap)->nbr);
 }

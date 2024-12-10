@@ -6,13 +6,13 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:35:00 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/07 19:07:31 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/10 20:16:33 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool av_check(char *str)
+bool	av_check(char *str)
 {
 	int	i;
 
@@ -31,7 +31,8 @@ bool av_check(char *str)
 		return (false);
 	return (true);
 }
-bool double_check(t_stack *stack, long nbr)
+
+bool	double_check(t_stack *stack, long nbr)
 {
 	t_list	*temp;
 
@@ -45,7 +46,7 @@ bool double_check(t_stack *stack, long nbr)
 	return (false);
 }
 
-bool av_are_valid(t_stack *stack, char **av)
+bool	av_are_valid(t_stack *stack, char **av)
 {
 	long	i;
 	t_swap	*swap;
@@ -59,7 +60,8 @@ bool av_are_valid(t_stack *stack, char **av)
 		if (!swap)
 			return (false);
 		swap->nbr = ft_atoi(av[i]);
-		if (double_check(stack, swap->nbr) || swap->nbr > 2147483647 || swap->nbr < -2147483648)
+		if (double_check(stack, swap->nbr) || swap->nbr > 2147483647
+			|| swap->nbr < -2147483648)
 		{
 			free(swap);
 			return (false);
