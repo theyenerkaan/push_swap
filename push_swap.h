@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 02:26:59 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/12 23:21:24 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/13 03:28:51 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdbool.h>
 # include "libft/libft.h"
 # include "printf/ft_printf.h"
-# include "get_next_line/get_next_line.h"
 
 typedef struct s_stack
 {
@@ -35,7 +34,6 @@ typedef struct s_swap
 }			t_swap;
 
 void		first(int ac, char **av, t_stack **a, t_stack **b);
-int			ft_strcmp(char *s1, char *s2);
 t_stack		*ft_stacknew(void);
 bool		parse(t_stack *stack, int ac, char **av);
 void		ft_stackclear(t_stack *stack, void (*del)(void *));
