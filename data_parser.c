@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:35:00 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/13 05:27:12 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/13 07:48:24 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ bool	av_are_valid(t_stack *stack, char **av)
 		swap = malloc(sizeof(t_swap));
 		if (!swap)
 			return (false);
-		swap->nbr = ft_atoi(av[i]);
+		swap->nbr = ft_atol(av[i]);
 		if (double_check(stack, swap->nbr) || swap->nbr > 2147483647
 			|| swap->nbr < -2147483648)
 		{

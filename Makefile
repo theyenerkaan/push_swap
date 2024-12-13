@@ -6,7 +6,7 @@
 #    By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/30 19:17:54 by yenyilma          #+#    #+#              #
-#    Updated: 2024/12/13 05:23:00 by yenyilma         ###   ########.fr        #
+#    Updated: 2024/12/13 07:49:13 by yenyilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,13 +30,13 @@ GNLDIR              =   get_next_line
 SRC                 =   push_swap.c data_parser.c ft_lstsort.c ft_stackclear.c ft_stacknew.c \
                         ft_stackpop.c ft_stackpush.c help.c operation.c push_operations.c \
                         r_rotate_operations.c rotate_operations.c stack_help.c \
-                        swap_operations.c target.c transaction.c
+                        swap_operations.c target.c transaction.c ft_atol.c
 
 B_SRC               =   checker_bonus.c data_parser_bonus.c ft_lstsort_bonus.c ft_stackclear_bonus.c \
                         ft_stacknew_bonus.c ft_stackpop_bonus.c ft_stackpush_bonus.c help_bonus.c \
                         operation_bonus.c push_operations_bonus.c r_rotate_operations_bonus.c \
                         rotate_operations_bonus.c stack_help_bonus.c swap_operations_bonus.c \
-                        target_bonus.c transaction_bonus.c
+                        target_bonus.c transaction_bonus.c ft_atol_bonus.c
 
 OBJ                 =   $(SRC:.c=.o)
 B_OBJ               =   $(B_SRC:.c=.o)

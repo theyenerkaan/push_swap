@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:35:00 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/13 01:17:58 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/13 07:53:34 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ bool	av_check(char *str)
 	{
 		if (i == 0 && !(str[i] == '-' || str[i] == '+' || ft_isdigit(str[i])))
 			return (false);
-		if (!ft_isdigit(str[i]))
+		if (!ft_isdigit(str[i]) && i != 0)
 			return (false);
 		i++;
 	}
@@ -59,7 +59,7 @@ bool	av_are_valid(t_stack *stack, char **av)
 		swap = malloc(sizeof(t_swap));
 		if (!swap)
 			return (false);
-		swap->nbr = ft_atoi(av[i]);
+		swap->nbr = ft_atol(av[i]);
 		if (double_check(stack, swap->nbr) || swap->nbr > 2147483647
 			|| swap->nbr < -2147483648)
 		{

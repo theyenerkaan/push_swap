@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 02:26:59 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/13 03:28:51 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/13 07:49:29 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ bool		double_check(t_stack *stack, long nbr);
 bool		av_are_valid(t_stack *stack, char **av);
 t_list		*transaction_max(t_stack *stack);
 t_list		*transaction_min(t_stack *stack);
+long		ft_atol(const char *str);
 void		transaction_b(t_swap *val, t_stack *a);
 void		transaction_a(t_swap *val, t_stack *b);
 void		chpst_swap(t_swap *swap, t_swap **min);

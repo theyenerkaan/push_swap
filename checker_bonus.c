@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:35:00 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/13 05:26:36 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/13 07:45:31 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	read_actions(t_stack *a, t_stack *b)
 	{
 		execute_action(line, a, b);
 		free(line);
+		line = get_next_line(0);
 	}
 	free(line);
 }
