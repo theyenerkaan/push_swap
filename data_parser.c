@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:35:00 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/10 20:16:33 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/13 04:17:31 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 bool	av_check(char *str)
 {
-	int	i;
+    int	i;
 
-	i = 0;
-	if (str == NULL)
-		return (false);
-	while (str[i])
-	{
-		if (i == 0 && !(str[i] == '-' || str[i] == '+' || ft_isdigit(str[i])))
-			return (false);
-		if (!ft_isdigit(str[i]))
-			return (false);
-		i++;
-	}
-	if (i == 1 && !ft_isdigit(str[0]))
-		return (false);
-	return (true);
+    i = 0;
+    if (str == NULL)
+        return (false);
+    while (str[i])
+    {
+        if (i == 0 && !(str[i] == '-' || str[i] == '+' || ft_isdigit(str[i])))
+            return (false);
+        if (!ft_isdigit(str[i]) && i != 0)
+            return (false);
+        i++;
+    }
+    if (i == 1 && !ft_isdigit(str[0]))
+        return (false);
+    return (true);
 }
 
 bool	double_check(t_stack *stack, long nbr)
