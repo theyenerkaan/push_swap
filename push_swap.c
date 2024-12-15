@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 02:26:59 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/13 04:21:32 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/15 19:37:12 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,41 @@ void	av_first_check(t_stack *a, t_stack *b)
 	sorting(a, b);
 }
 
+void	space_error(char **str)
+{
+	int	flag;
+	int	i;
+	int	j;
+
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		while (str[i][j])
+		{
+			if (str[i][j] >= '0' && str[i][j] <= '9')
+			{
+				flag = 1;
+				break ;
+			}
+			j++;
+		}
+		if (flag == 0)
+		{
+			ft_printf("Error\n");
+			exit(1);
+		}
+		flag = 0;
+		i++;
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
 
+	space_error(av);
 	first(ac, av, &a, &b);
 	av_first_check(a, b);
 	ft_stackclear(a, free);

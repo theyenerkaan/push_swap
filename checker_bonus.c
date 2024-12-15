@@ -6,13 +6,13 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:35:00 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/15 18:13:31 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/15 19:39:09 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	error_exit(void)
+static void	error_exit(void)
 {
 	ft_printf("Error\n");
 	exit(1);
@@ -60,6 +60,35 @@ void	read_actions(t_stack *a, t_stack *b)
 	free(line);
 }
 
+void	space_error(char **str)
+{
+	int	flag;
+	int	i;
+	int	j;
+
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		while (str[i][j])
+		{
+			if (str[i][j] >= '0' && str[i][j] <= '9')
+			{
+				flag = 1;
+				break ;
+			}
+			j++;
+		}
+		if (flag == 0)
+		{
+			ft_printf("Error\n");
+			exit(1);
+		}
+		flag = 0;
+		i++;
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*a;
@@ -71,6 +100,7 @@ int	main(int ac, char **av)
 	b = ft_stacknew();
 	if (parse(a, ac, av) || !a || !b)
 		error_exit();
+	space_error(av);
 	read_actions(a, b);
 	if (ft_lstsort(a->top, swp_cmp) && b->count == 0)
 		ft_printf("OK\n");
