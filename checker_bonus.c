@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:35:00 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/13 07:45:31 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/15 18:13:31 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,27 @@ void	error_exit(void)
 
 void	execute_action(char *action, t_stack *a, t_stack *b)
 {
-	if (ft_strncmp(action, "sa", 2) == 0)
+	if (ft_strncmp(action, "sa\n", 3) == 0)
 		sa(a);
-	else if (ft_strncmp(action, "sb", 2) == 0)
+	else if (ft_strncmp(action, "sb\n", 3) == 0)
 		sb(b);
-	else if (ft_strncmp(action, "ss", 2) == 0)
+	else if (ft_strncmp(action, "ss\n", 3) == 0)
 		ss(a, b);
-	else if (ft_strncmp(action, "rra", 3) == 0)
+	else if (ft_strncmp(action, "rra\n", 4) == 0)
 		rra(a);
-	else if (ft_strncmp(action, "rrb", 3) == 0)
+	else if (ft_strncmp(action, "rrb\n", 4) == 0)
 		rrb(b);
-	else if (ft_strncmp(action, "rrr", 3) == 0)
+	else if (ft_strncmp(action, "rrr\n", 4) == 0)
 		rrr(a, b);
-	else if (ft_strncmp(action, "pa", 2) == 0)
+	else if (ft_strncmp(action, "pa\n", 3) == 0)
 		pa(b, a);
-	else if (ft_strncmp(action, "pb", 2) == 0)
+	else if (ft_strncmp(action, "pb\n", 3) == 0)
 		pb(a, b);
-	else if (ft_strncmp(action, "ra", 2) == 0)
+	else if (ft_strncmp(action, "ra\n", 3) == 0)
 		ra(a);
-	else if (ft_strncmp(action, "rb", 2) == 0)
+	else if (ft_strncmp(action, "rb\n", 3) == 0)
 		rb(b);
-	else if (ft_strncmp(action, "rr", 2) == 0)
+	else if (ft_strncmp(action, "rr\n", 3) == 0)
 		rr(a, b);
 	else
 		error_exit();
