@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 02:26:59 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/16 17:44:10 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/16 21:54:40 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ bool		swp_cmp(void *prev, void *next);
 void		sorting(t_stack *a, t_stack *b);
 size_t		ft_arrlen(char **arr);
 void		ft_arrfree(char **arr);
+void		sort_three(t_stack *stack_a);
 void		ft_stackpush(t_stack *stack, void *data);
 void		*ft_stackpop(t_stack *stack);
 bool		av_check(char *str);

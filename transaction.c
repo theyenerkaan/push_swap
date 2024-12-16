@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 21:37:28 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/16 17:48:40 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/16 21:57:17 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ t_list	*transaction_min(t_stack *stack)
 	return (min);
 }
 
-void	transaction_b(t_swap *val, t_stack *a) {
+void	transaction_b(t_swap *val, t_stack *a)
+{
 	t_list	*tmp;
 	t_swap	*swp;
 	t_swap	*transaction;
@@ -66,7 +67,8 @@ void	transaction_b(t_swap *val, t_stack *a) {
 	}
 }
 
-void	transaction_a(t_swap *val, t_stack *b) {
+void	transaction_a(t_swap *val, t_stack *b)
+{
 	t_list	*tmp;
 	t_swap	*swp;
 	t_swap	*transaction;

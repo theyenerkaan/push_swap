@@ -6,7 +6,7 @@
 #    By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/30 19:17:54 by yenyilma          #+#    #+#              #
-#    Updated: 2024/12/16 17:33:07 by yenyilma         ###   ########.fr        #
+#    Updated: 2024/12/16 21:49:19 by yenyilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CHECKER             =   checker
 HEADER              =   push_swap.h
 B_HEADER            =   push_swap_bonus.h
 CC                  =   cc
-FLAGS               =   -Wall -Werror -Wextra
+FLAGS               =   -Wall -Werror -Wextra 
 LIBFT               =   libft/libft.a
 LIBFTDIR            =   libft
 PRINTF              =   printf/libftprintf.a

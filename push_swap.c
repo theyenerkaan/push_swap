@@ -6,47 +6,52 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 02:26:59 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/16 17:42:31 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/16 21:54:25 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	first(int ac, char **av, t_stack **a, t_stack **b) {
+static void	first(int ac, char **av, t_stack **a, t_stack **b)
+{
 	if (ac == 1)
 		exit(0);
 	*a = ft_stacknew();
 	if (!*a)
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 	if (parse(*a, ac, av))
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		ft_stackclear(*a, free);
 		exit(1);
 	}
 	*b = ft_stacknew();
 	if (!*b)
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		ft_stackclear(*a, free);
 		exit(1);
 	}
 }
 
-static void	av_first_check(t_stack *a, t_stack *b) {
+static void	av_first_check(t_stack *a, t_stack *b)
+{
 	if (ft_lstsort(a->top, swp_cmp))
 		return ;
 	if (a->count > 3)
 		pb(a, b);
 	if (a->count > 3)
 		pb(a, b);
+	if (a->count == 3)
+		sort_three(a);
 	sorting(a, b);
 }
 
-static void	space_error(char **str) {
+static void	space_error(char **str)
+{
 	int	flag;
 	int	i;
 	int	j;
@@ -66,7 +71,7 @@ static void	space_error(char **str) {
 		}
 		if (flag == 0)
 		{
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			exit(1);
 		}
 		flag = 0;
@@ -74,7 +79,8 @@ static void	space_error(char **str) {
 	}
 }
 
-int	main(int ac, char **av) {
+int	main(int ac, char **av)
+{
 	t_stack	*a;
 	t_stack	*b;
 
