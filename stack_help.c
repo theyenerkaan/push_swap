@@ -6,14 +6,13 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 21:30:14 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/04 17:21:01 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/16 17:47:35 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	the_sort(t_stack *stack)
-{
+void	the_sort(t_stack *stack) {
 	t_list	*big;
 
 	big = find_max(stack);
@@ -25,8 +24,7 @@ void	the_sort(t_stack *stack)
 		sa(stack);
 }
 
-void	prepare_or(t_stack *stack)
-{
+void	prepare_or(t_stack *stack) {
 	t_list	*temp;
 	t_swap	*swap;
 	int		i;
@@ -63,8 +61,7 @@ void	load_stack(t_stack *find, t_stack *target,
 	}
 }
 
-void	cheapest(t_stack *find, t_stack *target)
-{
+static void	cheapest(t_stack *find, t_stack *target) {
 	t_swap	*swp;
 	t_swap	*tget;
 	t_list	*tmp;
@@ -92,8 +89,7 @@ void	cheapest(t_stack *find, t_stack *target)
 	}
 }
 
-void	sorting(t_stack *a, t_stack *b)
-{
+void	sorting(t_stack *a, t_stack *b) {
 	t_list	*min;
 
 	while (a->count > 3)

@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 07:46:52 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/15 19:22:04 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/16 17:48:50 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ static void	ft_write_error(void)
 	exit(1);
 }
 
-long	ft_atol(const char *str)
-{
+long	ft_atol(const char *str) {
 	long	i;
 	long	sign;
 	long	result;

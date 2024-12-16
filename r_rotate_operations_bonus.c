@@ -6,14 +6,13 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:11:46 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/13 01:35:12 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/16 17:51:41 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	rra(t_stack *a)
-{
+void	rra(t_stack *a) {
 	t_list	*tmp;
 
 	if (a->count <= 1)
@@ -26,8 +25,7 @@ void	rra(t_stack *a)
 	tmp->next = NULL;
 }
 
-void	rrb(t_stack *b)
-{
+void	rrb(t_stack *b) {
 	t_list	*tmp;
 
 	if (b->count <= 1)
@@ -40,8 +38,7 @@ void	rrb(t_stack *b)
 	tmp->next = NULL;
 }
 
-void	rrr(t_stack *a, t_stack *b)
-{
+void	rrr(t_stack *a, t_stack *b) {
 	t_list	*tmp;
 
 	if (a->count <= 1)

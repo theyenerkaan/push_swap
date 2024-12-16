@@ -6,14 +6,13 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 02:26:59 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/15 19:37:12 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/16 17:42:31 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	first(int ac, char **av, t_stack **a, t_stack **b)
-{
+static void	first(int ac, char **av, t_stack **a, t_stack **b) {
 	if (ac == 1)
 		exit(0);
 	*a = ft_stacknew();
@@ -37,8 +36,7 @@ void	first(int ac, char **av, t_stack **a, t_stack **b)
 	}
 }
 
-void	av_first_check(t_stack *a, t_stack *b)
-{
+static void	av_first_check(t_stack *a, t_stack *b) {
 	if (ft_lstsort(a->top, swp_cmp))
 		return ;
 	if (a->count > 3)
@@ -48,13 +46,12 @@ void	av_first_check(t_stack *a, t_stack *b)
 	sorting(a, b);
 }
 
-void	space_error(char **str)
-{
+static void	space_error(char **str) {
 	int	flag;
 	int	i;
 	int	j;
 
-	i = 0;
+	i = 1;
 	while (str[i])
 	{
 		j = 0;
@@ -77,8 +74,7 @@ void	space_error(char **str)
 	}
 }
 
-int	main(int ac, char **av)
-{
+int	main(int ac, char **av) {
 	t_stack	*a;
 	t_stack	*b;
 

@@ -6,7 +6,7 @@
 #    By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/30 19:17:54 by yenyilma          #+#    #+#              #
-#    Updated: 2024/12/13 07:49:13 by yenyilma         ###   ########.fr        #
+#    Updated: 2024/12/16 17:33:07 by yenyilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -122,7 +122,6 @@ clean:
 	@rm -rf $(OBJ) $(B_OBJ)
 	@make clean -C libft > /dev/null 2>&1
 	@make clean -C printf > /dev/null 2>&1
-	@make clean -C get_next_line > /dev/null 2>&1
 	@echo "$(COLOR_LIGHT_RED)🧹 object files cleaned.$(COLOR_RESET)"
 
 fclean: clean

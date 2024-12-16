@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:39:06 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/13 01:18:19 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/16 17:51:03 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,13 @@ static void	op_help(t_swap *swap, t_swap *target, t_stack *a, t_stack *b)
 		op_helps(swap, target, a, b);
 }
 
-void	chpst_swap(t_swap *swp, t_swap **min)
-{
+void	chpst_swap(t_swap *swp, t_swap **min) {
 	swp->is_cheapest = true;
 	(*min)->is_cheapest = false;
 	*min = swp;
 }
 
-void	op_a(t_stack *a, t_stack *b)
-{
+void	op_a(t_stack *a, t_stack *b) {
 	t_list	*tmp;
 	t_swap	*tget;
 	t_swap	*swp;
@@ -81,8 +79,7 @@ void	op_a(t_stack *a, t_stack *b)
 	pb(a, b);
 }
 
-void	op_b(t_stack *a, t_stack *b)
-{
+void	op_b(t_stack *a, t_stack *b) {
 	t_list	*target;
 	t_swap	*swp;
 

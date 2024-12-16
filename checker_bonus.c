@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:35:00 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/15 19:39:09 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/16 17:42:11 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ static void	error_exit(void)
 	exit(1);
 }
 
-void	execute_action(char *action, t_stack *a, t_stack *b)
-{
+static void	execute_action(char *action, t_stack *a, t_stack *b) {
 	if (ft_strncmp(action, "sa\n", 3) == 0)
 		sa(a);
 	else if (ft_strncmp(action, "sb\n", 3) == 0)
@@ -46,8 +45,7 @@ void	execute_action(char *action, t_stack *a, t_stack *b)
 		error_exit();
 }
 
-void	read_actions(t_stack *a, t_stack *b)
-{
+static void	read_actions(t_stack *a, t_stack *b) {
 	char	*line;
 
 	line = get_next_line(0);
@@ -60,13 +58,12 @@ void	read_actions(t_stack *a, t_stack *b)
 	free(line);
 }
 
-void	space_error(char **str)
-{
+static void	space_error(char **str) {
 	int	flag;
 	int	i;
 	int	j;
 
-	i = 0;
+	i = 1;
 	while (str[i])
 	{
 		j = 0;
@@ -89,8 +86,7 @@ void	space_error(char **str)
 	}
 }
 
-int	main(int ac, char **av)
-{
+int	main(int ac, char **av) {
 	t_stack	*a;
 	t_stack	*b;
 
