@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:11:36 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/18 06:45:02 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/18 11:52:34 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	sa(t_stack *a)
 	int	*tmp;
 	int	*tmp1;
 
-	ft_printf("sa\n");
 	if (a->count <= 1)
 		return ;
 	tmp = ft_stackpop(a);
@@ -31,7 +30,6 @@ void	sb(t_stack *b)
 	int	*tmp;
 	int	*tmp1;
 
-	ft_printf("sb\n");
 	if (b->count <= 1)
 		return ;
 	tmp = ft_stackpop(b);
@@ -45,7 +43,6 @@ void	ss(t_stack *a, t_stack *b)
 	int	*tmp;
 	int	*tmp1;
 
-	ft_printf("ss\n");
 	if (a->count > 1)
 	{
 		tmp = ft_stackpop(a);
