@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stacknew.c                                      :+:      :+:    :+:   */
+/*   push_operations_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/01 00:07:25 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/01 00:08:33 by yenyilma         ###   ########.fr       */
+/*   Created: 2024/12/04 16:11:41 by yenyilma          #+#    #+#             */
+/*   Updated: 2024/12/18 06:43:47 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-t_stack	*ft_stacknew(void)
+void	pa(t_stack *b, t_stack *a)
 {
-	t_stack	*stack;
+	if (b->count == 0)
+		return ;
+	ft_stackpush(a, ft_stackpop(b));
+	ft_printf("pa\n");
+}
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->count = 0;
-	stack->top = NULL;
-	return (stack);
+void	pb(t_stack *a, t_stack *b)
+{
+	if (a->count == 0)
+		return ;
+	ft_stackpush(b, ft_stackpop(a));
+	ft_printf("pb\n");
 }

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stacknew.c                                      :+:      :+:    :+:   */
+/*   ft_lstsort_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/01 00:07:25 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/01 00:08:33 by yenyilma         ###   ########.fr       */
+/*   Created: 2024/12/01 01:55:36 by yenyilma          #+#    #+#             */
+/*   Updated: 2024/12/18 06:42:23 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-t_stack	*ft_stacknew(void)
+bool	ft_lstsort(t_list *lst, bool (*cmp)(void *elmnt, void *elmnt1))
 {
-	t_stack	*stack;
-
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->count = 0;
-	stack->top = NULL;
-	return (stack);
+	if (!lst)
+		return (true);
+	if (!cmp)
+		return (false);
+	while (lst->next)
+	{
+		if (cmp(lst->content, lst->next->content))
+			return (false);
+		lst = lst->next;
+	}
+	return (true);
 }

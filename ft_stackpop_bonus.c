@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stacknew.c                                      :+:      :+:    :+:   */
+/*   ft_stackpop_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/01 00:07:25 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/01 00:08:33 by yenyilma         ###   ########.fr       */
+/*   Created: 2024/12/01 00:12:55 by yenyilma          #+#    #+#             */
+/*   Updated: 2024/12/18 06:42:53 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-t_stack	*ft_stacknew(void)
+void	*ft_stackpop(t_stack *stack)
 {
-	t_stack	*stack;
+	void	*content;
+	t_list	*tmp;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->count = 0;
-	stack->top = NULL;
-	return (stack);
+	if (stack->count == 0)
+		return (ft_printf("You can't pop when stack is empty!!!"), NULL);
+	content = stack->top->content;
+	tmp = stack->top;
+	stack->top = stack->top->next;
+	ft_lstdelone(tmp, NULL);
+	stack->count--;
+	return (content);
 }

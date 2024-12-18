@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stacknew.c                                      :+:      :+:    :+:   */
+/*   ft_stackclear_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/01 00:07:25 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/01 00:08:33 by yenyilma         ###   ########.fr       */
+/*   Created: 2024/12/01 01:16:32 by yenyilma          #+#    #+#             */
+/*   Updated: 2024/12/13 01:18:05 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-t_stack	*ft_stacknew(void)
+void	ft_stackclear(t_stack *stack, void (*del)(void *))
 {
-	t_stack	*stack;
-
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->count = 0;
-	stack->top = NULL;
-	return (stack);
+	ft_lstclear(&stack->top, del);
+	free(stack);
 }

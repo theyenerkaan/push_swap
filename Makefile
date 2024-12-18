@@ -6,7 +6,7 @@
 #    By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/30 19:17:54 by yenyilma          #+#    #+#              #
-#    Updated: 2024/12/18 05:47:09 by yenyilma         ###   ########.fr        #
+#    Updated: 2024/12/18 06:40:03 by yenyilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,7 @@ CHECKER             =   checker
 HEADER              =   push_swap.h
 B_HEADER            =   push_swap_bonus.h
 CC                  =   cc
-CFLAGS              =   -g #-Wall -Werror -Wextra -fsanitize=address
-LDFLAGS             =   -fsanitize=address
+CFLAGS              =   -Wall -Werror -Wextra -g
 LIBFT               =   libft/libft.a
 LIBFTDIR            =   libft
 PRINTF              =   printf/libftprintf.a
@@ -122,7 +121,7 @@ valgrind_push_swap: $(NAME)
 	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --log-file=valgrind_push_swap_out.txt ./$(NAME) $(ARGS)
 
 valgrind_checker: $(CHECKER)
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=valgrind_checker_out.txt ./$(CHECKER) $(ARGS)
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=valgrind_checker_out.txt ./$(CHECKER) input.txt actions.txt
 
 clean:
 	@echo "$(COLOR_LIGHT_RED)🧹 cleaning object files...$(COLOR_RESET)"
@@ -141,6 +140,3 @@ fclean: clean
 
 re: fclean all
 	@echo "$(COLOR_BOLD_GREEN)♻️  recompiled successfully... $(COLOR_RESET)"
-
-# push_swap: $(OBJ)
-# 	$(CC) $(CFLAGS) $(OBJ) -o $@ $(LDFLAGS)
