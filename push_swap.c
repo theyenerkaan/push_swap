@@ -6,11 +6,17 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 02:26:59 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/16 21:54:25 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/18 08:58:16 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	error_exit(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
+}
 
 static void	first(int ac, char **av, t_stack **a, t_stack **b)
 {
@@ -56,6 +62,7 @@ static void	space_error(char **str)
 	int	i;
 	int	j;
 
+	flag = 0;
 	i = 1;
 	while (str[i])
 	{
@@ -70,10 +77,7 @@ static void	space_error(char **str)
 			j++;
 		}
 		if (flag == 0)
-		{
-			write(2, "Error\n", 6);
-			exit(1);
-		}
+			error_exit();
 		flag = 0;
 		i++;
 	}

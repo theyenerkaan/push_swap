@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:35:00 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/16 21:50:47 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/18 08:59:21 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ static void	space_error(char **str)
 	int	i;
 	int	j;
 
+	flag = 0;
 	i = 1;
 	while (str[i])
 	{
@@ -80,10 +81,7 @@ static void	space_error(char **str)
 			j++;
 		}
 		if (flag == 0)
-		{
-			write(2, "Error\n", 6);
-			exit(1);
-		}
+			error_exit();
 		flag = 0;
 		i++;
 	}
