@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:35:00 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/15 19:28:11 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/18 05:25:17 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,27 @@ bool	av_check(char *str)
 		return (false);
 	while (str[i])
 	{
-		if (i == 0 && !(str[i] == '-' || str[i] == '+' || ft_isdigit(str[i])))
-			return (false);
-		if (!ft_isdigit(str[i]) && i != 0)
+		if (i == 0)
+		{
+			if (!(str[i] == '+' || str[i] == '-' || ft_isdigit(str[i])))
+				return (false);
+		}
+		else if (!ft_isdigit(str[i]))
 			return (false);
 		i++;
 	}
-	if (i == 1 && !ft_isdigit(str[0]))
+	if ((i == 1 && !ft_isdigit(str[i - 1])))
 		return (false);
-	return (true);
+	else
+		return (true);
 }
 
-bool	double_check(t_stack *stack, long nbr)
+int	double_check(t_stack *stack, long nbr)
 {
 	t_list	*temp;
 
 	temp = stack->top;
-	while (temp)
+	while (temp != NULL)
 	{
 		if (((t_swap *)temp->content)->nbr == nbr)
 			return (true);
@@ -46,7 +50,7 @@ bool	double_check(t_stack *stack, long nbr)
 	return (false);
 }
 
-bool	av_are_valid(t_stack *stack, char **av)
+long	av_are_valid(t_stack *stack, char **av)
 {
 	long	i;
 	t_swap	*swap;
@@ -56,8 +60,8 @@ bool	av_are_valid(t_stack *stack, char **av)
 	{
 		if (!av_check(av[i]))
 			return (false);
-		swap = malloc(sizeof(t_swap));
-		if (!swap)
+		swap = malloc(sizeof (t_swap));
+		if (swap == NULL)
 			return (false);
 		swap->nbr = ft_atol(av[i]);
 		if (double_check(stack, swap->nbr))
@@ -71,7 +75,7 @@ bool	av_are_valid(t_stack *stack, char **av)
 	return (true);
 }
 
-bool	parse(t_stack *stack, int ac, char **av)
+int	parse(t_stack *stack, int ac, char **av)
 {
 	char	**split;
 	int		i;

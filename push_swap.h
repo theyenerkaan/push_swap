@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 02:26:59 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/12/16 21:54:40 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/12/18 05:24:42 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_swap
 }			t_swap;
 
 t_stack		*ft_stacknew(void);
-bool		parse(t_stack *stack, int ac, char **av);
+int			parse(t_stack *stack, int ac, char **av);
 void		ft_stackclear(t_stack *stack, void (*del)(void *));
 void		av_f_check(t_stack *a, t_stack *b);
 bool		ft_lstsort(t_list *lst, bool (*cmp)(void *elmnt, void *elmnt1));
@@ -46,8 +46,8 @@ void		sort_three(t_stack *stack_a);
 void		ft_stackpush(t_stack *stack, void *data);
 void		*ft_stackpop(t_stack *stack);
 bool		av_check(char *str);
-bool		double_check(t_stack *stack, long nbr);
-bool		av_are_valid(t_stack *stack, char **av);
+int			double_check(t_stack *stack, long nbr);
+long		av_are_valid(t_stack *stack, char **av);
 t_list		*transaction_max(t_stack *stack);
 t_list		*transaction_min(t_stack *stack);
 long		ft_atol(const char *str);
